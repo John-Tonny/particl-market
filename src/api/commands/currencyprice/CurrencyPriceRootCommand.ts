@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import * as _ from 'lodash';
 import { inject, named } from 'inversify';
@@ -35,8 +35,8 @@ export class CurrencyPriceRootCommand extends BaseCommand implements RpcCommandI
      * [1]: toCurrency
      * [...]: toCurrency
      *
-     * description: fromCurrency must be PART for now and toCurrency may be multiple currencies like INR, USD etc..
-     * example: [PART, INR, USD, EUR, GBP, ....]
+     * description: fromCurrency must be VPUB for now and toCurrency may be multiple currencies like INR, USD etc..
+     * example: [VPUB, INR, USD, EUR, GBP, ....]
      *
      * @param data
      * @param rpcCommandFactory
@@ -53,9 +53,9 @@ export class CurrencyPriceRootCommand extends BaseCommand implements RpcCommandI
 
         const fromCurrency = data.params.shift().toUpperCase();
 
-        // throw exception if fromCurrency is not a PART or toCurrencies has length 0
-        if (fromCurrency !== 'PART') {
-            throw new MessageException(`fromCurrency must be PART, but was ${fromCurrency}.`);
+        // throw exception if fromCurrency is not a VPUB or toCurrencies has length 0
+        if (fromCurrency !== 'VPUB') {
+            throw new MessageException(`fromCurrency must be VPUB, but was ${fromCurrency}.`);
         } else {
             // convert params to uppercase
             const toCurrencies: string[] = [];
@@ -82,6 +82,6 @@ export class CurrencyPriceRootCommand extends BaseCommand implements RpcCommandI
     }
 
     public example(): any {
-        return 'currencyprice PART EUR USD';
+        return 'currencyprice VPUB EUR USD';
     }
 }

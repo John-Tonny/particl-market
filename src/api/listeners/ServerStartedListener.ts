@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { Types, Core, Targets } from '../../constants';
@@ -90,7 +90,7 @@ export class ServerStartedListener implements interfaces.Listener {
         if (isConnected) {
 
             if (this.previousState !== isConnected) {
-                this.log.info('connection with particld established.');
+                this.log.info('connection with vpubd established.');
 
                 const hasWallet = await this.coreRpcService.hasWallet();
 
@@ -119,11 +119,11 @@ export class ServerStartedListener implements interfaces.Listener {
                 }
             }
 
-            // this.log.info('connected to particld, checking again in ' + this.interval + 'ms.');
+            // this.log.info('connected to vpubd, checking again in ' + this.interval + 'ms.');
         } else {
 
             if (this.previousState !== isConnected) {
-                this.log.info('connection with particld disconnected.');
+                this.log.info('connection with vpubd disconnected.');
 
                 // stop message polling
                 this.messageProcessor.stop();
@@ -131,7 +131,7 @@ export class ServerStartedListener implements interfaces.Listener {
             }
 
             if (process.env.NODE_ENV !== 'test') {
-                this.log.error('failed to connect to particld, retrying in ' + this.interval + 'ms.');
+                this.log.error('failed to connect to vpubd, retrying in ' + this.interval + 'ms.');
             }
         }
 

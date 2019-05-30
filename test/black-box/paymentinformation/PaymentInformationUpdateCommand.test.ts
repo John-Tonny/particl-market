@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import * from 'jest';
 import { BlackBoxTestUtil } from '../lib/BlackBoxTestUtil';
@@ -30,7 +30,7 @@ describe('PaymentInformationUpdateCommand', () => {
     const testData = {
         type: PaymentType.FREE,
         itemPrice: {
-            currency: Currency.PARTICL,
+            currency: Currency.VPUB,
             basePrice: 1,
             shippingPrice: {
                 domestic: 2,

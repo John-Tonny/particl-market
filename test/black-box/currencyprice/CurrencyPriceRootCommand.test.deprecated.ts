@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import * from 'jest';
 import * as resources from 'resources';
@@ -23,25 +23,25 @@ describe('CurrencyPriceRootCommand', () => {
     });
 
     test('Should get one new CurrencyPrice', async () => {
-        const res = await testUtil.rpc(currencyPriceCommand, ['PART', 'INR']);
+        const res = await testUtil.rpc(currencyPriceCommand, ['VPUB', 'INR']);
         res.expectJson();
         res.expectStatusCode(200);
         const result: resources.CurrencyPrice[] = res.getBody()['result'];
         currencyPrice = result;
         expect(result.length).toBe(1);
-        expect(result[0].from).toBe('PART');
+        expect(result[0].from).toBe('VPUB');
         expect(result[0].to).toBe('INR');
         expect(result[0].price).toBeDefined();
         expect(result[0].createdAt).toBe(result[0].updatedAt);
     });
 
     test('Should not have updated CurrencyPrice', async () => {
-        const res = await testUtil.rpc(currencyPriceCommand, ['PART', 'INR']);
+        const res = await testUtil.rpc(currencyPriceCommand, ['VPUB', 'INR']);
         res.expectJson();
         res.expectStatusCode(200);
         const result: resources.CurrencyPrice[] = res.getBody()['result'];
         expect(result.length).toBe(1);
-        expect(result[0].from).toBe('PART');
+        expect(result[0].from).toBe('VPUB');
         expect(result[0].to).toBe('INR');
         expect(result[0].price).toBe(currencyPrice[0].price);
         expect(result[0].createdAt).toBe(result[0].updatedAt);
@@ -61,22 +61,22 @@ describe('CurrencyPriceRootCommand', () => {
         expect(res.error.error.message).toBe('Requires at least two parameters, but only 1 were found.');
     });
 
-    test('Should fail to get CurrencyPrice without from currency as PART', async () => {
+    test('Should fail to get CurrencyPrice without from currency as VPUB', async () => {
         const res = await testUtil.rpc(currencyPriceCommand, ['INR', 'EUR']);
         res.expectJson();
         res.expectStatusCode(404);
-        expect(res.error.error.message).toBe('fromCurrency must be PART, but was INR.');
+        expect(res.error.error.message).toBe('fromCurrency must be VPUB, but was INR.');
     });
 
     test('Should fail to get CurrencyPrice because invalid from currency', async () => {
         const res = await testUtil.rpc(currencyPriceCommand, ['EUR', 'INR', 'USD']);
         res.expectJson();
         res.expectStatusCode(404);
-        expect(res.error.error.message).toBe('fromCurrency must be PART, but was EUR.');
+        expect(res.error.error.message).toBe('fromCurrency must be VPUB, but was EUR.');
     });
 
     test('Should fail to get CurrencyPrice because unsupported currencies', async () => {
-        const res = await testUtil.rpc(currencyPriceCommand, ['PART', 'INR', 'USD', 'TEST']);
+        const res = await testUtil.rpc(currencyPriceCommand, ['VPUB', 'INR', 'USD', 'TEST']);
         res.expectJson();
         res.expectStatusCode(404);
         expect(res.error.error.message).toBe('Invalid or unsupported currency: TEST.');

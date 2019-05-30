@@ -4,10 +4,10 @@ version: 0.1.0
 services:
 
   particld1:
-    image: ludx/particl:0.18
+    image: ludx/vpub:0.18
     instances: 1
     volumes:
-      - /root/data/particld-circle1:/root/.particl
+      - /root/data/vpubd-circle1:/root/.vpub
     environment:
       - CONF_TESTNET=1                  # Use the test chain
       - CONF_RPCUSERNAME=test           # Username for JSON-RPC connections, generated unless set
@@ -28,10 +28,10 @@ services:
       - node==kontena-agent1
 
   particld2:
-    image: ludx/particl:0.18
+    image: ludx/vpub:0.18
     instances: 1
     volumes:
-      - /root/data/particld-circle2:/root/.particl
+      - /root/data/vpubd-circle2:/root/.vpub
     environment:
       - CONF_TESTNET=1                  # Use the test chain
       - CONF_RPCUSERNAME=test           # Username for JSON-RPC connections, generated unless set
@@ -53,7 +53,7 @@ services:
 
 
   app1:
-    image: ludx/particl-market-ci:ci-test
+    image: ludx/vpub-market-ci:ci-test
     instances: 1
     depends_on:
       - particld1
@@ -61,13 +61,13 @@ services:
       - particld1
       - loadbalancerstack/internet-lb
     volumes:
-      - /root/data/particl-market-ci1:/app/data
-      - /root/data/particl-market-ci1-node_modules:/app/node_modules
+      - /root/data/vpub-market-ci1:/app/data
+      - /root/data/vpub-market-ci1-node_modules:/app/node_modules
     command: ./bin/ci-entrypoint.sh
     environment:
       - NODE_ENV=development
-      - APP_NAME=particl-marketplace
-      - APP_HOST=http://circle.particl.xyz
+      - APP_NAME=vpub-marketplace
+      - APP_HOST=http://circle.vpub.xyz
       - APP_URL_PREFIX=/api
       - APP_PORT=3000
       - RPCUSER=test
@@ -80,7 +80,7 @@ services:
       #- KONTENA_LB_MODE=http
       #- KONTENA_LB_BALANCE=roundrobin
       #- KONTENA_LB_INTERNAL_PORT=3000
-      #- KONTENA_LB_VIRTUAL_HOSTS=circle1.particl.xyz
+      #- KONTENA_LB_VIRTUAL_HOSTS=circle1.vpub.xyz
     ports:
       - 3100:3000
     affinity:
@@ -89,7 +89,7 @@ services:
     mem_limit: 4g
 
   app2:
-    image: ludx/particl-market-ci:ci-test
+    image: ludx/vpub-market-ci:ci-test
     instances: 1
     depends_on:
       - particld2
@@ -97,12 +97,12 @@ services:
       - particld2
       - loadbalancerstack/internet-lb
     volumes:
-      - /root/data/particl-market-ci2:/app/data
-      - /root/data/particl-market-ci2-node_modules:/app/node_modules
+      - /root/data/vpub-market-ci2:/app/data
+      - /root/data/vpub-market-ci2-node_modules:/app/node_modules
     command: ./bin/ci-entrypoint.sh
     environment:
       - NODE_ENV=development
-      - APP_NAME=particl-market
+      - APP_NAME=vpub-market
       - APP_HOST=http://localhost
       - APP_URL_PREFIX=/api
       - APP_PORT=3000
@@ -132,7 +132,7 @@ services:
       #- KONTENA_LB_MODE=http
       #- KONTENA_LB_BALANCE=roundrobin
       #- KONTENA_LB_INTERNAL_PORT=3000
-      #- KONTENA_LB_VIRTUAL_HOSTS=circle.particl.xyz
+      #- KONTENA_LB_VIRTUAL_HOSTS=circle.vpub.xyz
     ports:
       - 3200:3000
     affinity:

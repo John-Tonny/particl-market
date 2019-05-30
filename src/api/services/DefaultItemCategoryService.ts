@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { Logger as LoggerType } from '../../core/Logger';
@@ -26,7 +26,7 @@ export class DefaultItemCategoryService {
 
         const ROOT = await this.insertOrUpdateCategory({ key: 'cat_ROOT', name: 'ROOT', description: 'root item category', parent_item_category_id: 0 } as ItemCategoryCreateRequest);
 
-        let LEVEL1CHILD = await this.insertOrUpdateCategory({ key: 'cat_particl', name: 'Particl', description: '', parent_item_category_id: ROOT.Id } as ItemCategoryCreateRequest);
+        let LEVEL1CHILD = await this.insertOrUpdateCategory({ key: 'cat_particl', name: 'Vpub', description: '', parent_item_category_id: ROOT.Id } as ItemCategoryCreateRequest);
         await this.insertOrUpdateCategory({ key: 'cat_particl_free_swag', name: 'Free Swag', description: '', parent_item_category_id: LEVEL1CHILD.Id } as ItemCategoryCreateRequest);
 
         LEVEL1CHILD = await this.insertOrUpdateCategory({ key: 'cat_high_value', name: 'High Value (10,000$+)', description: '', parent_item_category_id: ROOT.Id } as ItemCategoryCreateRequest);

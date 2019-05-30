@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import * from 'jest';
 import { app } from '../../src/app';
@@ -60,7 +60,7 @@ describe('CurrencyPrice', () => {
     });
 
     test('Should get CurrencyPrice from db without updating the latest price from external service', async () => {
-        const currencyPrice = await currencyPriceService.getCurrencyPrices('PART', ['INR']);
+        const currencyPrice = await currencyPriceService.getCurrencyPrices('VPUB', ['INR']);
         const result = currencyPrice[0];
 
         expect(result.from).toBe(createRequestCurrencyPricePARTINR.from);
@@ -108,7 +108,7 @@ describe('CurrencyPrice', () => {
 
     test('Should get CurrencyPrice with previously updated price', async () => {
         log.debug('Should get CurrencyPrice with updated price');
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['INR']);
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['INR']);
         log.debug('result:', result);
 
         expect(result.length).toBe(1);
@@ -122,7 +122,7 @@ describe('CurrencyPrice', () => {
     });
 
     test('Should get CurrencyPrice from db and another one with updated price', async () => {
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['INR', 'USD']);
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['INR', 'USD']);
 
         log.debug('result:', JSON.stringify(result, null, 2));
 
@@ -133,7 +133,7 @@ describe('CurrencyPrice', () => {
         expect(result[0].updatedAt).toBe(createdCurrencyPricePARTINR.updatedAt);
         expect(result[0].updatedAt).toBeGreaterThan(result[0].createdAt);
 
-        expect(result[1].from).toBe('PART');
+        expect(result[1].from).toBe('VPUB');
         expect(result[1].to).toBe('USD');
         expect(result[1].updatedAt).toBe(result[1].createdAt);
 
@@ -141,26 +141,26 @@ describe('CurrencyPrice', () => {
     });
 
     test('Should get CurrencyPrice from db passing currencies in UPPER case', async () => {
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['INR', 'USD']);
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['INR', 'USD']);
         expect(result[0].from).toBe(createdCurrencyPricePARTINR.from);
         expect(result[0].to).toBe(createdCurrencyPricePARTINR.to);
         expect(result[0].price).toBe(createdCurrencyPricePARTINR.price);
         expect(result[0].updatedAt).toBeGreaterThan(result[0].createdAt);
 
-        expect(result[1].from).toBe('PART');
+        expect(result[1].from).toBe('VPUB');
         expect(result[1].to).toBe('USD');
 
     });
 
     test('Should get CurrencyPrice from db passing currencies in LOWER case', async () => {
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['inr', 'usd']);
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['inr', 'usd']);
         expect(result[0].from).toBe(createdCurrencyPricePARTINR.from);
         expect(result[0].to).toBe(createdCurrencyPricePARTINR.to);
         expect(result[0].price).toBe(createdCurrencyPricePARTINR.price);
         expect(result[0].updatedAt).toBe(createdCurrencyPricePARTINR.updatedAt);
         expect(result[0].createdAt).toBe(createdCurrencyPricePARTINR.createdAt);
 
-        expect(result[1].from).toBe('PART');
+        expect(result[1].from).toBe('VPUB');
         expect(result[1].to).toBe('USD');
 
     });
@@ -168,29 +168,29 @@ describe('CurrencyPrice', () => {
     test('Should get updated CurrencyPrice passing currencies in LOWER case', async () => {
         process.env.CHASING_COINS_API_DELAY = 0;
 
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['inr', 'usd']);
-        expect(result[0].from).toBe('PART');
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['inr', 'usd']);
+        expect(result[0].from).toBe('VPUB');
         expect(result[0].to).toBe('INR');
         expect(result[0].updatedAt).toBeGreaterThan(result[0].createdAt);
 
-        expect(result[1].from).toBe('PART');
+        expect(result[1].from).toBe('VPUB');
         expect(result[1].to).toBe('USD');
         expect(result[1].updatedAt).toBeGreaterThan(result[1].createdAt);
     });
 
     test('Should get currency price from db passing one currency in LOWER case and one in UPPER case', async () => {
-        const result = await currencyPriceService.getCurrencyPrices('PART', ['inr', 'USD']);
-        expect(result[0].from).toBe('PART');
+        const result = await currencyPriceService.getCurrencyPrices('VPUB', ['inr', 'USD']);
+        expect(result[0].from).toBe('VPUB');
         expect(result[0].to).toBe('INR');
         expect(result[0].updatedAt).toBeGreaterThan(result[0].createdAt);
 
-        expect(result[1].from).toBe('PART');
+        expect(result[1].from).toBe('VPUB');
         expect(result[1].to).toBe('USD');
         expect(result[1].updatedAt).toBeGreaterThan(result[1].createdAt);
 
     });
 
-    test('Should searchBy currency price by from PART and to USD currency', async () => {
+    test('Should searchBy currency price by from VPUB and to USD currency', async () => {
         const result = await currencyPriceService.search({from: createdCurrencyPricePARTUSD.from, to: createdCurrencyPricePARTUSD.to} as CurrencyPriceParams);
         expect(result.From).toBe(createdCurrencyPricePARTUSD.from);
         expect(result.To).toBe(createdCurrencyPricePARTUSD.to);
@@ -204,12 +204,12 @@ describe('CurrencyPrice', () => {
     });
 
     test('Should return null searchBy result because not supported to currency', async () => {
-        const currencyPriceModel = await currencyPriceService.search({from: 'PART', to: 'TEST'} as CurrencyPriceParams);
+        const currencyPriceModel = await currencyPriceService.search({from: 'VPUB', to: 'TEST'} as CurrencyPriceParams);
         expect(currencyPriceModel).toBe(null);
     });
 
     test('Should return null searchBy result because currency price does not exist in the db for the given to currency', async () => {
-        const currencyPriceModel = await currencyPriceService.search({from: 'PART', to: 'PKR'} as CurrencyPriceParams);
+        const currencyPriceModel = await currencyPriceService.search({from: 'VPUB', to: 'PKR'} as CurrencyPriceParams);
         expect(currencyPriceModel).toBe(null);
     });
 

@@ -4,10 +4,10 @@ version: 0.1.0
 services:
 
   particld1:
-    image: ludx/particl:0.18
+    image: ludx/vpub:0.18
     instances: 1
     volumes:
-      - /root/data/particld-dev1:/root/.particl
+      - /root/data/vpubd-dev1:/root/.vpub
     environment:
       - CONF_TESTNET=1                  # Use the test chain
       - CONF_RPCUSERNAME=test           # Username for JSON-RPC connections, generated unless set
@@ -24,10 +24,10 @@ services:
       - node==kontena-agent1
 
   particld2:
-    image: ludx/particl:0.18
+    image: ludx/vpub:0.18
     instances: 1
     volumes:
-      - /root/data/particld-dev2:/root/.particl
+      - /root/data/vpubd-dev2:/root/.vpub
     environment:
       - CONF_TESTNET=1                  # Use the test chain
       - CONF_RPCUSERNAME=test           # Username for JSON-RPC connections, generated unless set
@@ -44,7 +44,7 @@ services:
       - node==kontena-agent1
 
   app1:
-    image: ludx/particl-market-ci:develop
+    image: ludx/vpub-market-ci:develop
     instances: 1
     depends_on:
       - particld1
@@ -52,12 +52,12 @@ services:
       - particld1
       - loadbalancerstack/internet-lb
     volumes:
-      - /root/data/particl-market-dev1:/app/data
+      - /root/data/vpub-market-dev1:/app/data
     command: ./bin/ci-entrypoint.sh
     environment:
       - NODE_ENV=development
-      - APP_NAME=particl-market
-      - APP_HOST=http://dev1.particl.xyz
+      - APP_NAME=vpub-market
+      - APP_HOST=http://dev1.vpub.xyz
       - APP_URL_PREFIX=/api
       - APP_PORT=3333
       - RPCUSER=test
@@ -86,14 +86,14 @@ services:
       - KONTENA_LB_MODE=http
       - KONTENA_LB_BALANCE=roundrobin
       - KONTENA_LB_INTERNAL_PORT=3333
-      - KONTENA_LB_VIRTUAL_HOSTS=dev1.particl.xyz
+      - KONTENA_LB_VIRTUAL_HOSTS=dev1.vpub.xyz
     affinity:
       - node==kontena-agent1
     cpus: 4.0
     mem_limit: 2g
 
   app2:
-    image: ludx/particl-market-ci:develop
+    image: ludx/vpub-market-ci:develop
     instances: 1
     depends_on:
       - particld2
@@ -101,12 +101,12 @@ services:
       - particld2
       - loadbalancerstack/internet-lb
     volumes:
-      - /root/data/particl-market-dev2:/app/data
+      - /root/data/vpub-market-dev2:/app/data
     command: ./bin/ci-entrypoint.sh
     environment:
       - NODE_ENV=development
-      - APP_NAME=particl-market
-      - APP_HOST=http://dev2.particl.xyz
+      - APP_NAME=vpub-market
+      - APP_HOST=http://dev2.vpub.xyz
       - APP_URL_PREFIX=/api
       - APP_PORT=3333
       - RPCUSER=test
@@ -135,6 +135,6 @@ services:
       - KONTENA_LB_MODE=http
       - KONTENA_LB_BALANCE=roundrobin
       - KONTENA_LB_INTERNAL_PORT=3333
-      - KONTENA_LB_VIRTUAL_HOSTS=dev2.particl.xyz
+      - KONTENA_LB_VIRTUAL_HOSTS=dev2.vpub.xyz
     affinity:
       - node==kontena-agent1

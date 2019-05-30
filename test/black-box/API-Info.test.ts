@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import * from 'jest';
 import * as dotenv from 'dotenv';
@@ -14,7 +14,7 @@ describe('getnetworkinfo', () => {
     const log: LoggerType = new LoggerType(__filename);
     const testUtil = new BlackBoxTestUtil();
 
-    test('Should connect to the particld daemon and successfully call getblockchaininfo', async () => {
+    test('Should connect to the vpubd daemon and successfully call getblockchaininfo', async () => {
         const rpcRequestBody = {
             method: 'getblockchaininfo',
             params: [],

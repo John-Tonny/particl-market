@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vpub Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { Logger as LoggerType } from '../../core/Logger';
@@ -22,7 +22,7 @@ export class RpcMiddleware implements interfaces.Middleware {
     public use = (req: myExpress.Request, res: myExpress.Response, next: myExpress.NextFunction): void => {
 
         if (!this.serverStartedListener.isStarted) {
-            return res.failed(503, 'Server not fully started yet, is particld running?');
+            return res.failed(503, 'Server not fully started yet, is vpubd running?');
         }
 
         // validate rpc request

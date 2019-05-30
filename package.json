@@ -1,5 +1,5 @@
 {
-  "name": "particl-marketplace",
+  "name": "vpub-marketplace",
   "version": "0.0.52",
   "description": "",
   "main": "dist/module.js",
@@ -49,15 +49,15 @@
     "ts-node:fast": "./node_modules/.bin/ts-node -F",
     "prepublish": "npm run build"
   },
-  "repository": "git+ssh://git@github.com:particl/particl-market.git",
+  "repository": "git+ssh://git@github.com:vpub/vpub-market.git",
   "keywords": [
-    "particl"
+    "vpub"
   ],
-  "homepage": "https://github.com/particl/particl-market#readme",
+  "homepage": "https://github.com/vpub/vpub-market#readme",
   "contributors": [
     {
       "name": "Juha Kovanen",
-      "email": "juha@particl.io",
+      "email": "juha@vpub.io",
       "url": "https://github.com/xludx"
     }
   ],
@@ -107,7 +107,7 @@
     "request-promise": "^4.2.1",
     "serve-favicon": "^2.4.3",
     "socket.io": "^2.0.4",
-    "sqlite3": "https://github.com/particl/sqlite3-offline.git",
+    "sqlite3": "https://github.com/vpub/sqlite3-offline.git",
     "swagger-jsdoc": "^1.9.6",
     "swagger-ui-express": "^2.0.1",
     "sync-fs": "^1.0.1",
