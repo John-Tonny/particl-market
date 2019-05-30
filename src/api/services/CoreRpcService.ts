@@ -63,7 +63,7 @@ export class CoreRpcService {
     public log: LoggerType;
 
     private DEFAULT_MAINNET_PORT = 51735;
-    private DEFAULT_TESTNET_PORT = 51935;
+    private DEFAULT_TESTNET_PORT = 51955;
     private DEFAULT_REGTEST_PORT = 19792;
     private DEFAULT_HOSTNAME = 'localhost';
     // DEFAULT_USERNAME & DEFAULT_PASSWORD in CoreCookieService
@@ -508,6 +508,7 @@ export class CoreRpcService {
         });
 
         const url = this.getUrl();
+        console.log(url);
         const options = this.getOptions();
 
         if (logCall) {

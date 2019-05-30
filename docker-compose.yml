@@ -26,7 +26,7 @@ services:
       - RPCPASSWORD=test
       - RPCHOSTNAME=particld1
       - MAINNET_PORT=51738
-      - TESTNET_PORT=51935
+      - TESTNET_PORT=51955
 
   app2:
     build:
@@ -53,7 +53,7 @@ services:
       - RPCPASSWORD=test
       - RPCHOSTNAME=particld2
       - MAINNET_PORT=51738
-      - TESTNET_PORT=51935
+      - TESTNET_PORT=51955
 
 #  gui1:
 #    image: marketplace-gui
@@ -104,7 +104,7 @@ services:
     volumes:
       - ./data/particl1:/root/.vpub:cached
     ports:
-      - 52935:51935
+      - 52935:51955
       - 52936:51936
       - 52938:51938
 #    command: entrypoint.sh vpubd -reindex-chainstate
@@ -135,7 +135,7 @@ services:
     volumes:
       - ./data/particl2:/root/.vpub:cached
     ports:
-      - 53935:51935
+      - 53935:51955
       - 53936:51936
       - 53938:51938
 #    command: entrypoint.sh vpubd -reindex-chainstate
