@@ -44,8 +44,8 @@ data/wallet2.dat
 data/database/*
 data/uploads/*
 data/tests/*
-data/particl1/*
-data/particl2/*
+data/vpub1/*
+data/vpub2/*
 data/app1/*
 data/app1_dist/*
 data/app2/*

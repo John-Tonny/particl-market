@@ -3,7 +3,7 @@ const fs = require('sync-fs');
 const prepend = require('prepend');
 
 const date = new Date();
-const particlMarket = '// Copyright (c) 2017-' + String(date.getFullYear()) + ', The Vpub Market developers';
+const vpubMarket = '// Copyright (c) 2017-' + String(date.getFullYear()) + ', The Vpub Market developers';
 const underLicense = '// Distributed under the GPL software license, see the accompanying';
 const licenseLink = '// file COPYING or https://github.com/vpub/vpub-market/blob/develop/LICENSE';
 
@@ -22,7 +22,7 @@ function update(filename) {
         }
         let lines = file.split('\n');
         lines.shift();
-        lines.unshift(particlMarket);
+        lines.unshift(vpubMarket);
         file = lines.join('\n');
         fs.writeFile(filename, file);
     } catch (error) {
@@ -39,7 +39,7 @@ function add(filename) {
     } catch (error) {
         console.error(error);
     }
-    prepend(filename, particlMarket + '\n' + underLicense + '\n' + licenseLink + '\n', function(error) {
+    prepend(filename, vpubMarket + '\n' + underLicense + '\n' + licenseLink + '\n', function(error) {
         if (error) console.error(error.message);
     });
 }

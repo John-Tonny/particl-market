@@ -3,7 +3,7 @@ stack: ludx/dappshellcircle-stack
 version: 0.1.0
 services:
 
-  particld1:
+  vpubd1:
     image: ludx/vpub:0.18
     instances: 1
     volumes:
@@ -27,7 +27,7 @@ services:
     affinity:
       - node==kontena-agent1
 
-  particld2:
+  vpubd2:
     image: ludx/vpub:0.18
     instances: 1
     volumes:
@@ -56,9 +56,9 @@ services:
     image: ludx/vpub-market-ci:ci-test
     instances: 1
     depends_on:
-      - particld1
+      - vpubd1
     links:
-      - particld1
+      - vpubd1
       - loadbalancerstack/internet-lb
     volumes:
       - /root/data/vpub-market-ci1:/app/data
@@ -72,7 +72,7 @@ services:
       - APP_PORT=3000
       - RPCUSER=test
       - RPCPASSWORD=test
-      - RPCHOSTNAME=particld1
+      - RPCHOSTNAME=vpubd1
       - MAINNET_PORT=51738
       - TESTNET_PORT=51955
       - DB_CLIENT=sqlite3
@@ -92,9 +92,9 @@ services:
     image: ludx/vpub-market-ci:ci-test
     instances: 1
     depends_on:
-      - particld2
+      - vpubd2
     links:
-      - particld2
+      - vpubd2
       - loadbalancerstack/internet-lb
     volumes:
       - /root/data/vpub-market-ci2:/app/data
@@ -108,7 +108,7 @@ services:
       - APP_PORT=3000
       - RPCUSER=test
       - RPCPASSWORD=test
-      - RPCHOSTNAME=particld2
+      - RPCHOSTNAME=vpubd2
       - MAINNET_PORT=51738
       - TESTNET_PORT=51955
       - LOG_LEVEL=debug

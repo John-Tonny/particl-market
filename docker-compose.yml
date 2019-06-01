@@ -14,9 +14,9 @@ services:
       - 3100:3100
     command: bin/entrypoint.sh
     links:
-      - particld1
+      - vpubd1
     depends_on:
-      - particld1
+      - vpubd1
     env_file:
       - .env.docker-compose
     environment:
@@ -24,7 +24,7 @@ services:
       - APP_PORT=3100
       - RPCUSER=test
       - RPCPASSWORD=test
-      - RPCHOSTNAME=particld1
+      - RPCHOSTNAME=vpubd1
       - MAINNET_PORT=51738
       - TESTNET_PORT=51955
 
@@ -41,9 +41,9 @@ services:
       - 3200:3200
     command: bin/entrypoint.sh
     links:
-      - particld2
+      - vpubd2
     depends_on:
-      - particld2
+      - vpubd2
     env_file:
       - .env.docker-compose
     environment:
@@ -51,7 +51,7 @@ services:
       - APP_PORT=3200
       - RPCUSER=test
       - RPCPASSWORD=test
-      - RPCHOSTNAME=particld2
+      - RPCHOSTNAME=vpubd2
       - MAINNET_PORT=51738
       - TESTNET_PORT=51955
 
@@ -68,10 +68,10 @@ services:
 #    command: bin/entrypoint.sh
 #    links:
 #      - app1
-#      - particld1
+#      - vpubd1
 #    depends_on:
 #      - app1
-#      - particld1
+#      - vpubd1
 #    environment:
 #      - NODE_ENV=development
 #      - GUI_ENV=docker1
@@ -90,19 +90,19 @@ services:
 #    command: bin/entrypoint.sh
 #    links:
 #      - app2
-#      - particld2
+#      - vpubd2
 #    depends_on:
 #      - app2
-#      - particld2
+#      - vpubd2
 #    environment:
 #      - NODE_ENV=development
 #      - GUI_ENV=docker2
 #      - PORT=4200
 
-  particld1:
+  vpubd1:
     image: ludx/vpub:0.18 # master # 0.16.2.0
     volumes:
-      - ./data/particl1:/root/.vpub:cached
+      - ./data/vpub1:/root/.vpub:cached
     ports:
       - 52935:51955
       - 52936:51936
@@ -124,16 +124,16 @@ services:
       - CONF_LISTEN=1                   # Accept connections from outside (default: 1 if no -proxy or -connect)
 #      - CONF_LISTENONION=1              # Automatically create Tor hidden service (default: 1)
 #      - CONF_TORCONTROL=127.0.0.1:9051  # Tor control port to use if onion listening enabled (default: 127.0.0.1:9051)
-#      - CONF_TORPASSWORD=particltor     # Tor control port password, generated unless set
+#      - CONF_TORPASSWORD=vpubtor     # Tor control port password, generated unless set
 #      - CONF_DISCOVER=1                # Discover own IP address (default: 1 when listening and no -externalip)
 #      - CONF_BIND=127.0.0.1             # Bind to given address and always listen on it. Use [host]:port notation for IPv6
 #      - CONF_DEBUG=tor                    # Output debugging information: 0/1, addrman, alert, bench, cmpctblock, coindb, db, http, libevent, lock, mempool, mempoolrej, net, proxy, prune, rand, reindex, rpc, selectcoins, tor, zmq, qt.
       - CREATEDEFAULTMASTERKEY=true
 
-  particld2:
+  vpubd2:
     image: ludx/vpub:0.18 # master # 0.16.2.0
     volumes:
-      - ./data/particl2:/root/.vpub:cached
+      - ./data/vpub2:/root/.vpub:cached
     ports:
       - 53935:51955
       - 53936:51936

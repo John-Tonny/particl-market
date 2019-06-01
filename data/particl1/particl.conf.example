@@ -12,8 +12,8 @@ rpcbind=0.0.0.0
 rpcworkqueue=500
 rpcthreads=128
 rpctimeout=1000
-addnode=particld1
-addnode=particld2
+addnode=vpubd1
+addnode=vpubd2
 txindex=1
 addressindex=1
 

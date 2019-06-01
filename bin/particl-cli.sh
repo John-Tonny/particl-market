@@ -2,7 +2,7 @@
 if (( $# == 0 )); then
     echo "usage: service command params..."
     echo ""
-    echo "example: vpub-cli.sh particld1 help"
+    echo "example: vpub-cli.sh vpubd1 help"
     exit
 elif (( $# == 1 )); then
     SERVICE="$1"

@@ -2,8 +2,8 @@
 node_modules
 npm-debug.log
 data/database/*
-data/particl1
-data/particl2
+data/vpub1
+data/vpub2
 data/app1*
 data/app2*
 data/gui*

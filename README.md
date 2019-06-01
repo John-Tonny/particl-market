@@ -56,8 +56,8 @@ docker-compose up
 ```
 
 > This starts two marketplace applications and two vpub daemons for you.
-> app1 cli: http://localhost:3100/cli, connecting to particl1 on port 52935
-> app2 cli: http://localhost:3200/cli, connecting to particl2 on port 53935
+> app1 cli: http://localhost:3100/cli, connecting to vpub1 on port 52935
+> app2 cli: http://localhost:3200/cli, connecting to vpub2 on port 53935
 
 ## Scripts / Tasks
 All script are defined in the package.json file, but the most important ones are listed here.
@@ -250,11 +250,11 @@ by [w3tech](https://github.com/w3tecch)
 
 ## Test Hacks
 ```
-rm -rf /tmp/particl_testing/node1 /tmp/particl_testing/node2  /tmp/particl_testing/node3
-mkdir -p /tmp/particl_testing/node1 /tmp/particl_testing/node2  /tmp/particl_testing/node3
-./vpubd  --regtest -daemon -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test
-./vpubd -regtest -rpcuser=test -rpcpassword=test -daemon -datadir=/tmp/particl_testing/node2 -port=55555 -rpcport=51945 -connect=127.0.0.1
-./vpubd -regtest -daemon -datadir=/tmp/particl_testing/node3 -port=55556 -rpcport=51946 -connect=127.0.0.1
+rm -rf /tmp/vpub_testing/node1 /tmp/vpub_testing/node2  /tmp/vpub_testing/node3
+mkdir -p /tmp/vpub_testing/node1 /tmp/vpub_testing/node2  /tmp/vpub_testing/node3
+./vpubd  --regtest -daemon -datadir=/tmp/vpub_testing/node1 -rpcuser=test -rpcpassword=test
+./vpubd -regtest -rpcuser=test -rpcpassword=test -daemon -datadir=/tmp/vpub_testing/node2 -port=55555 -rpcport=51945 -connect=127.0.0.1
+./vpubd -regtest -daemon -datadir=/tmp/vpub_testing/node3 -port=55556 -rpcport=51946 -connect=127.0.0.1
 sleep 5
 ./vpub-cli -regtest -rpcuser=test -rpcpassword=test reservebalance true 100000
 ./vpub-cli -rpcuser=test -rpcpassword=test -regtest walletsettings stakelimit '{"height":0}'
@@ -268,7 +268,7 @@ sleep 5
 
 ```
 ```
-./vpub-cli -regtest -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test stop
-./vpub-cli -regtest -datadir=/tmp/particl_testing/node2 -rpcuser=test -rpcpassword=test -rpcport=51945 stop
-./vpub-cli -regtest -datadir=/tmp/particl_testing/node3 -rpcport=51946 stop
+./vpub-cli -regtest -datadir=/tmp/vpub_testing/node1 -rpcuser=test -rpcpassword=test stop
+./vpub-cli -regtest -datadir=/tmp/vpub_testing/node2 -rpcuser=test -rpcpassword=test -rpcport=51945 stop
+./vpub-cli -regtest -datadir=/tmp/vpub_testing/node3 -rpcport=51946 stop
 ```

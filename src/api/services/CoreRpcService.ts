@@ -508,15 +508,12 @@ export class CoreRpcService {
         });
 
         const url = this.getUrl();
-        console.log(url);
         const options = this.getOptions();
 
         if (logCall) {
             // TODO: handle [object Object]
             this.log.debug('call: ' + method + ' ' + JSON.stringify(params).replace(new RegExp(',', 'g'), ' '));
         }
-        // this.log.debug('call url:', url);
-        // this.log.debug('call postData:', postData);
 
         return await WebRequest.post(url, options, postData)
             .then( response => {
