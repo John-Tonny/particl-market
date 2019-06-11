@@ -66,7 +66,8 @@ export class Environment {
     }
 
     public static isTestnet(): boolean {
-        return !this.isProduction();
+        return false;
+        // return !this.isProduction();
     }
 
     public static isRegtest(): boolean {

@@ -452,7 +452,6 @@ export class EscrowActionService {
         }
 
         this.log.debug('createRawTx(), request.action:', request.action);
-
         switch (request.action) {
 
             case EscrowMessageType.MPA_LOCK:

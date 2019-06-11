@@ -101,8 +101,14 @@ export class ListingItemTemplatePostCommand extends BaseCommand implements RpcCo
             const listingItemTemplate: resources.ListingItemTemplate = await this.listingItemTemplateService.findOne(listingItemTemplateId)
                 .then(value => value.toJSON());   // throws if not found
 
+            console.log(listingItemTemplate);
             const itemPrice: resources.ItemPrice = listingItemTemplate.PaymentInformation.ItemPrice;
-
+            console.log(itemPrice);
+            console.log(itemPrice.basePrice);
+            console.log(listingItemTemplate.PaymentInformation.ItemPrice.basePrice);
+            const aaa1  = _.isEmpty(itemPrice.basePrice);
+            console.log(aaa1);
+            /*
             // validate price
             if (_.isEmpty(itemPrice.basePrice)
                 || listingItemTemplate.PaymentInformation.ItemPrice.basePrice < 0) {
@@ -120,7 +126,7 @@ export class ListingItemTemplatePostCommand extends BaseCommand implements RpcCo
                     }
                 }
             }
-
+            */
             // check size limit
             const templateMessageDataSize = await this.listingItemTemplateService.calculateMarketplaceMessageSize(listingItemTemplate);
             if (!templateMessageDataSize.fits) {
@@ -138,7 +144,7 @@ export class ListingItemTemplatePostCommand extends BaseCommand implements RpcCo
             // make sure market with the id exists
             await this.marketService.findOne(marketId);   // throws if not found
         }
-
+        console.log(data);
         return data;
     }
 
