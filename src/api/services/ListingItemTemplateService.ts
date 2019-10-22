@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as Bookshelf from 'bookshelf';
 import * as _ from 'lodash';
@@ -43,7 +43,7 @@ import {ItemImage} from '../models/ItemImage';
 
 export class ListingItemTemplateService {
 
-    public static MAX_SMSG_SIZE = 524288;  // https://github.com/particl/particl-core/blob/master/src/smsg/smessage.h#L78
+    public static MAX_SMSG_SIZE = 524288;  // https://github.com/vircle/vircle-core/blob/master/src/smsg/smessage.h#L78
     private static OVERHEAD_PER_SMSG = 0;
     private static OVERHEAD_PER_IMAGE = 0;
 

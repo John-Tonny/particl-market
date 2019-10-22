@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as _ from 'lodash';
 import * as dotenv from 'dotenv';
@@ -14,23 +14,25 @@ export class EnvConfig {
     public envFile = '.env';
 
     private defaultEnv = {
-        NODE_ENV: EnvironmentType.DEVELOPMENT.toString(),
+        NODE_ENV: EnvironmentType.PRODUCTION.toString(),
         MARKETPLACE_VERSION: '0.0.1.0',
-        APP_NAME: 'particl-market',
+        APP_NAME: 'vircle-market',
         APP_HOST: 'http://localhost',
         APP_URL_PREFIX: '/api',
         APP_PORT: 3000,
         RPCHOSTNAME: 'localhost',
-        MAINNET_PORT: 51738,
-        TESTNET_PORT: 51935,
+        MAINNET_PORT: 9092,
+        TESTNET_PORT: 19092,
         REGTEST_PORT: 19792,
         REGTEST: false,
         INIT: true,
         MIGRATE: true,
         JASMINE_TIMEOUT: 100000,
         DEFAULT_MARKETPLACE_NAME: 'DEFAULT',
-        DEFAULT_MARKETPLACE_PRIVATE_KEY: '2Zc2pc9jSx2qF5tpu25DCZEr1Dwj8JBoVL5WP4H1drJsX9sP4ek',
-        DEFAULT_MARKETPLACE_ADDRESS: 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA',
+        // DEFAULT_MARKETPLACE_PRIVATE_KEY: 'GytUhrV2QbMCw5zpXb4iHfwgywoAnfueKWnSxJ8SPM3VEnHvk6m2',
+        // DEFAULT_MARKETPLACE_ADDRESS: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6',
+        DEFAULT_MARKETPLACE_PRIVATE_KEY: 'GytUhrV2QbMCw5zpXb4iHfwgywoAnfueKWnSxJ8SPM3VEnHvk6m2',
+        DEFAULT_MARKETPLACE_ADDRESS: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6',
         PAID_MESSAGE_RETENTION_DAYS: 4,
         MARKET_RPC_AUTH_DISABLED: false,
         MARKET_RPC_USER: 'test',

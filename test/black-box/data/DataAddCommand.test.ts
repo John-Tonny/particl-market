@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * from 'jest';
 import { BlackBoxTestUtil } from '../lib/BlackBoxTestUtil';
@@ -40,7 +40,7 @@ describe('DataAddCommand', () => {
             received: '2018-03-31T03:57:16+0200',
             sent: '2018-03-31T03:57:16+0200',
             from: 'prW9s2UgmRaUjffBoaeMhiHWf3aMABBgLx',
-            to: 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA'
+            to: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6'
         },
         listing_item_id: 33
     };

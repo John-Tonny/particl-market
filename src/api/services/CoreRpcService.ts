@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as _ from 'lodash';
 import * as WebRequest from 'web-request';
@@ -42,11 +42,11 @@ export interface BlockchainInfo {
 export interface UnspentOutput   {
     txid: string;                   // (string) the transaction id
     vout: number;                   // (numeric) the vout value
-    address: string;                // (string) the particl address
-    coldstaking_address: string;    // (string) the particl address this output must stake on
+    address: string;                // (string) the vircle address
+    coldstaking_address: string;    // (string) the vircle address this output must stake on
     label: string;                  // (string) The associated label, or "" for the default label
     scriptPubKey: string;           // (string) the script key
-    amount: number;                 // (numeric) the transaction output amount in PART
+    amount: number;                 // (numeric) the transaction output amount in VCL
     confirmations: number;          // (numeric) The number of confirmations
     redeemScript: string;           // (string) The redeemScript if scriptPubKey is P2SH
     spendable: boolean;             // (bool) Whether we have the private keys to spend this output
@@ -62,8 +62,8 @@ export class CoreRpcService {
 
     public log: LoggerType;
 
-    private DEFAULT_MAINNET_PORT = 51735;
-    private DEFAULT_TESTNET_PORT = 51935;
+    private DEFAULT_MAINNET_PORT = 9092;
+    private DEFAULT_TESTNET_PORT = 19092;
     private DEFAULT_REGTEST_PORT = 19792;
     private DEFAULT_HOSTNAME = 'localhost';
     // DEFAULT_USERNAME & DEFAULT_PASSWORD in CoreCookieService
@@ -92,7 +92,7 @@ export class CoreRpcService {
     }
 
     /**
-     * returns the particld version:
+     * returns the vircled version:
      * 16000400: 0.16.0.4,
      * 16000700: 0.16.0.7, ...
      *
@@ -155,7 +155,7 @@ export class CoreRpcService {
      *    "involvesWatchonly": true,      (bool)    Only returned if imported addresses were involved in transaction
      *    "address": "receivingaddress",  (string)  The receiving address
      *    "account": "accountname",       (string)  DEPRECATED. Backwards compatible alias for label.
-     *    "amount": x.xxx,                (numeric) The total amount in PART received by the address
+     *    "amount": x.xxx,                (numeric) The total amount in VCL received by the address
      *    "confirmations": n,             (numeric) The number of confirmations of the most recent transaction included
      *    "label": "label",               (string)  The label of the receiving address. The default label is "".
      *    "txids": [
@@ -179,7 +179,7 @@ export class CoreRpcService {
     }
 
     /**
-     * ﻿Returns a new Particl address for receiving payments, key is saved in wallet.
+     * ﻿Returns a new Vircle address for receiving payments, key is saved in wallet.
      *
      * If 'account' is specified (DEPRECATED), it is added to the address book
      * so payments received with the address will be credited to 'account'.
@@ -212,7 +212,7 @@ export class CoreRpcService {
     }
 
     /**
-     * ﻿﻿Return information about the given particl address. Some information requires the address to be in the wallet.
+     * ﻿﻿Return information about the given vircle address. Some information requires the address to be in the wallet.
      *
      * example result:
      * {
@@ -239,14 +239,14 @@ export class CoreRpcService {
     /**
      * ﻿Add a nrequired-to-sign multisignature address to the wallet. Requires a new wallet backup.
      *
-     * Each key is a Particl address or hex-encoded public key.
+     * Each key is a Vircle address or hex-encoded public key.
      * If 'account' is specified (DEPRECATED), assign address to that account.
      *
      * params:
      * ﻿[0] ﻿nrequired,       (numeric, required) The number of required signatures out of the n keys or addresses.
-     * [1] "keys",          (string, required) A json array of particl addresses or hex-encoded public keys
+     * [1] "keys",          (string, required) A json array of vircle addresses or hex-encoded public keys
      *      [
-     *          "address"   (string) particl address or hex-encoded public key
+     *          "address"   (string) vircle address or hex-encoded public key
      *          ...,
      *      ]
      * [2] "account"        (string, optional) DEPRECATED. An account to assign the addresses to.
@@ -441,7 +441,7 @@ export class CoreRpcService {
     }
 
     /**
-     * ﻿DEPRECATED. Returns the current Particl address for receiving payments to this account.
+     * ﻿DEPRECATED. Returns the current Vircle address for receiving payments to this account.
      *
      * @param {string} account
      * @returns {Promise<any>}
@@ -514,8 +514,8 @@ export class CoreRpcService {
             // TODO: handle [object Object]
             this.log.debug('call: ' + method + ' ' + JSON.stringify(params).replace(new RegExp(',', 'g'), ' '));
         }
-        // this.log.debug('call url:', url);
-        // this.log.debug('call postData:', postData);
+        this.log.debug('call url:', url);
+        this.log.debug('call postData:', postData);
 
         return await WebRequest.post(url, options, postData)
             .then( response => {
@@ -571,6 +571,8 @@ export class CoreRpcService {
     }
 
     private getUrl(): string {
+        this.log.debug('NODE_DEV', process.env.NODE_DEV);
+        this.log.debug('Environment.isProduction():', Environment.isProduction());
         // this.log.debug('Environment.isTestnet():', Environment.isTestnet());
         // this.log.debug('Environment.isAlpha():', Environment.isAlpha());
 

@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import { Bookshelf as Database } from '../../config/Database';
 import * as Bookshelf from 'bookshelf';
@@ -1012,7 +1012,7 @@ export class TestDataService {
 
         const itemPrice = generateParams.generateItemPrice
             ? {
-                currency: Currency.PARTICL.toString(), // Faker.random.arrayElement(Object.getOwnPropertyNames(Currency)),
+                currency: Currency.VIRCLE.toString(), // Faker.random.arrayElement(Object.getOwnPropertyNames(Currency)),
                 basePrice: _.random(0.1, 1.00),
                 shippingPrice: {
                     domestic: _.random(0.01, 0.10),

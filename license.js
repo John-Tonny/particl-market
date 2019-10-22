@@ -3,9 +3,9 @@ const fs = require('sync-fs');
 const prepend = require('prepend');
 
 const date = new Date();
-const particlMarket = '// Copyright (c) 2017-' + String(date.getFullYear()) + ', The Particl Market developers';
+const particlMarket = '// Copyright (c) 2017-' + String(date.getFullYear()) + ', The Vircle Market developers';
 const underLicense = '// Distributed under the GPL software license, see the accompanying';
-const licenseLink = '// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE';
+const licenseLink = '// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE';
 
 function getFiles(filePath) {
     console.log(filePath);

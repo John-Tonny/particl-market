@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { Logger as LoggerType } from '../../core/Logger';
@@ -121,7 +121,7 @@ export class SmsgService {
      * ],
      * "smsg_keys": [
      *   {
-     *     "address": "pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA",
+     *     "address": "Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6",
      *     "public_key": "MkRjwngPvzX17eF6sjadwjgfjHmn3E9wVheSTi1UjecUNxxZtBFyVJLiWCrMUrm4FbpFW3ehg5HaWfxFd3xQnRzj",
      *     "receive": "1",
      *     "anon": "1",

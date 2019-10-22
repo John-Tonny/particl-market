@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * from 'jest';
 import * as _ from 'lodash';
@@ -43,7 +43,7 @@ describe('SmsgMessage', () => {
         version: '0300',
         location: 'inbox',
         received: 1534858853,
-        to: 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA',
+        to: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6',
         read: true,
         sent: 1534849136,
         paid: true,
@@ -51,7 +51,7 @@ describe('SmsgMessage', () => {
         expiration: 1535194736,
         payloadsize: 704,
         from: 'psERtzYWqnZ9dXD9BqEW1ZA7dnLTHaoXfW',
-        text: '{\"version\":\"0.0.1.0\",\"item\":{\"hash\":\"1173c5f72a5612b9bccff555d39add69362407a3d034e9aaf7cd9f3529249260\",\"information\":{\"title\":\"testing with wallet unlock\",\"short_description\":\"test\",\"long_description\":\"test\",\"category\":[\"cat_ROOT\",\"cat_particl\",\"cat_particl_free_swag\"],\"location\":{\"country\":\"AD\",\"address\":\"a\",\"gps\":{}},\"shipping_destinations\":[],\"images\":[]},\"payment\":{\"type\":\"SALE\",\"escrow\":{\"type\":\"MAD\",\"ratio\":{\"buyer\":100,\"seller\":100}},\"cryptocurrency\":[{\"currency\":\"PARTICL\",\"base_price\":1,\"shipping_price\":{\"domestic\":1,\"international\":1}}]},\"messaging\":[],\"objects\":[],\"proposalHash\":\"4b9bd65e277e90b9a9698ec804d8fa2832d69d17df230aa82a4145b34bde5244\",\"expiryTime\":4}}'
+        text: '{\"version\":\"0.0.1.0\",\"item\":{\"hash\":\"1173c5f72a5612b9bccff555d39add69362407a3d034e9aaf7cd9f3529249260\",\"information\":{\"title\":\"testing with wallet unlock\",\"short_description\":\"test\",\"long_description\":\"test\",\"category\":[\"cat_ROOT\",\"cat_particl\",\"cat_particl_free_swag\"],\"location\":{\"country\":\"AD\",\"address\":\"a\",\"gps\":{}},\"shipping_destinations\":[],\"images\":[]},\"payment\":{\"type\":\"SALE\",\"escrow\":{\"type\":\"MAD\",\"ratio\":{\"buyer\":100,\"seller\":100}},\"cryptocurrency\":[{\"currency\":\"VIRCLE\",\"base_price\":1,\"shipping_price\":{\"domestic\":1,\"international\":1}}]},\"messaging\":[],\"objects\":[],\"proposalHash\":\"4b9bd65e277e90b9a9698ec804d8fa2832d69d17df230aa82a4145b34bde5244\",\"expiryTime\":4}}'
     };
 
     const proposalMessage = {
@@ -59,7 +59,7 @@ describe('SmsgMessage', () => {
         version: '0201',
         location: 'inbox',
         received: 1534858853,
-        to: 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA',
+        to: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6',
         read: true,
         sent: 1534849136,
         paid: false,
@@ -75,7 +75,7 @@ describe('SmsgMessage', () => {
         version: '0201',
         location: 'inbox',
         received: 1533904808,
-        to: 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA',
+        to: 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6',
         read: true,
         sent: 1533904807,
         paid: false,

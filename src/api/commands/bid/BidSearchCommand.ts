@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as Bookshelf from 'bookshelf';
 import { inject, named } from 'inversify';
@@ -45,7 +45,7 @@ export class BidSearchCommand extends BaseCommand implements RpcCommandInterface
      *  [4]: status/action, ENUM{MPA_BID, MPA_ACCEPT, MPA_REJECT, MPA_CANCEL}
      *       or ENUM{AWAITING_ESCROW, ESCROW_LOCKED, SHIPPING, COMPLETE}, * for all, optional
      *  [5]: searchString, string, * for anything, optional
-     *  [6...]: bidder: particl address, optional
+     *  [6...]: bidder: vircle address, optional
      *
      * @param data
      * @returns {Promise<Bookshelf.Collection<Bid>>}
@@ -100,7 +100,7 @@ export class BidSearchCommand extends BaseCommand implements RpcCommandInterface
      *  [4]: status/action, ENUM{MPA_BID, MPA_ACCEPT, MPA_REJECT, MPA_CANCEL}
      *       or ENUM{AWAITING_ESCROW, ESCROW_LOCKED, SHIPPING, COMPLETE}, * for all, optional
      *  [5]: searchString, string, * for anything, optional
-     *  [6...]: bidder: particl address, optional
+     *  [6...]: bidder: vircle address, optional
      *
      * @param {RpcRequest} data
      * @returns {Promise<RpcRequest>}

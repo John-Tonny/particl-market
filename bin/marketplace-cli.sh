@@ -14,7 +14,7 @@ elif (( $# == 1 )); then
     PORT="$1"
     HOST="http://localhost:$PORT/api/rpc"
     shift
-    # echo ">>> docker-compose exec $SERVICE /opt/particl-0.16/bin/particl-cli help"
+    # echo ">>> docker-compose exec $SERVICE /opt/vircle-0.16/bin/vircle-cli help"
     echo -e $(curl -s --user test:test \
     -H "Accept: application/json" \
     -H "Content-Type:application/json" \

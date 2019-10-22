@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { validate, request } from '../../../core/api/Validate';
@@ -110,6 +110,6 @@ export class PaymentInformationUpdateCommand extends BaseCommand implements RpcC
     }
 
     public example(): string {
-        return 'payment ' + this.getName() + '  1 FREE PART 123 12 34 PkE5U1Erz9bANXAxvHeiw6t14vDTP9EdNM ';
+        return 'payment ' + this.getName() + '  1 FREE VCL 123 12 34 PkE5U1Erz9bANXAxvHeiw6t14vDTP9EdNM ';
     }
 }

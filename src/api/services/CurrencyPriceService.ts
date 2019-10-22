@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as Request from 'request';
 import * as resources from 'resources';
@@ -58,9 +58,9 @@ export class CurrencyPriceService {
      *
      * example: toCurrencies[] = [INR, USD, EUR, GBP]
      *
-     * description: from argument must be PART for now and toCurrencies is an array of toCurrencies like [INR, USD, EUR, GBP].
+     * description: from argument must be VCL for now and toCurrencies is an array of toCurrencies like [INR, USD, EUR, GBP].
      *
-     * @param {string} fromCurrency name (PART for now)
+     * @param {string} fromCurrency name (VCL for now)
      * @param {string[]} toCurrencies array of toCurrencies
      * @returns {Promise<"resources".CurrencyPrice[]>}
      */
@@ -151,7 +151,7 @@ export class CurrencyPriceService {
 
     /**
      * get the updated currency price
-     * fromCurrency: PART (must be PART for now)
+     * fromCurrency: VCL (must be VCL for now)
      * toCurrency: another currencies for which we want to convert
      * @returns {Promise<any>}
      */

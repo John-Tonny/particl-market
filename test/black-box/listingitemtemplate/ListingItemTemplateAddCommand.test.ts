@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * from 'jest';
 import { BlackBoxTestUtil } from '../lib/BlackBoxTestUtil';
@@ -53,7 +53,7 @@ describe('ListingItemTemplateAddCommand', () => {
             'Long description',             // [3]: long description
             category.id,              // [4]: categoryID
             PaymentType.SALE,               // [5]: payment type
-            Currency.PARTICL,               // [6]: currency
+            Currency.VIRCLE,               // [6]: currency
             10.1234,                        // [7]: base price
             2.12341234,                     // [8]: domestic shipping price
             1.12341234,                     // [9]: international shipping price
@@ -95,7 +95,7 @@ describe('ListingItemTemplateAddCommand', () => {
             'Long description 2',           // [3]: long description
             category.id,                    // [4]: categoryID
             PaymentType.SALE,               // [5]: payment type
-            Currency.PARTICL,               // [6]: currency
+            Currency.VIRCLE,               // [6]: currency
             10.1234,                        // [7]: base price
             2.12341234,                     // [8]: domestic shipping price
             1.12341234                      // [9]: international shipping price

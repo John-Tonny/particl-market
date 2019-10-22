@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 
 import { inject, named } from 'inversify';
@@ -15,7 +15,7 @@ import * as fs from 'fs';
 
 /**
  * Deals with Authentication.
- * particl-core: read the cookie file in a loop (singleton!)
+ * vircle-core: read the cookie file in a loop (singleton!)
  */
 export class CoreCookieService {
 
@@ -50,7 +50,7 @@ export class CoreCookieService {
         try {
             const cookie = this.getPathToCookie();
 
-            // we might not be running the particld locally so the cookie might not exists
+            // we might not be running the vircled locally so the cookie might not exists
             if (cookie) {
                 fs.access(cookie, (error) => {
                     if (!error) {
@@ -97,7 +97,7 @@ export class CoreCookieService {
         const homeDir: string = os.homedir ? os.homedir() : process.env['HOME'];
 
         let dir = '';
-        const appName = 'Particl';
+        const appName = 'Vircle';
 
         switch (process.platform) {
           case 'linux': {
@@ -135,10 +135,10 @@ export class CoreCookieService {
     private checkIfExists(dir: string): boolean {
         try {
             fs.accessSync(dir, fs.constants.R_OK);
-            this.log.info('Found particl-core path', dir);
+            this.log.info('Found vircle-core path', dir);
             return true;
         } catch (err) {
-            this.log.error('Could not find particl-core path!', dir);
+            this.log.error('Could not find vircle-core path!', dir);
         }
         return false;
     }

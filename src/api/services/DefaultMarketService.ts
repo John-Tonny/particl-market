@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import * as Bookshelf from 'bookshelf';
 import { inject, named } from 'inversify';
@@ -37,10 +37,10 @@ export class DefaultMarketService {
                                             : 'DEFAULT';
         const MARKETPLACE_PRIVATE_KEY   = process.env.DEFAULT_MARKETPLACE_PRIVATE_KEY
                                             ? process.env.DEFAULT_MARKETPLACE_PRIVATE_KEY
-                                            : '2Zc2pc9jSx2qF5tpu25DCZEr1Dwj8JBoVL5WP4H1drJsX9sP4ek';
+                                            : 'GytUhrV2QbMCw5zpXb4iHfwgywoAnfueKWnSxJ8SPM3VEnHvk6m2';
         const MARKETPLACE_ADDRESS       = process.env.DEFAULT_MARKETPLACE_ADDRESS
                                             ? process.env.DEFAULT_MARKETPLACE_ADDRESS
-                                            : 'pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA';
+                                            : 'Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6';
 
         const defaultMarket = {
             name: MARKETPLACE_NAME,

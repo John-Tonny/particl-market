@@ -1,6 +1,6 @@
 # dapp-shell
  
-[![CircleCI](https://circleci.com/gh/particl/dapp-shell/tree/develop.svg?style=svg)](https://circleci.com/gh/particl/dapp-shell/tree/develop)
+[![CircleCI](https://circleci.com/gh/vircle/dapp-shell/tree/develop.svg?style=svg)](https://circleci.com/gh/vircle/dapp-shell/tree/develop)
 
 ## Getting Started 
 ### Step 1:  Set up the Development Environment 
@@ -55,7 +55,7 @@ docker-compose build
 docker-compose up
 ```
 
-> This starts two marketplace applications and two particl daemons for you.
+> This starts two marketplace applications and two vircle daemons for you.
 > app1 cli: http://localhost:3100/cli, connecting to particl1 on port 52935
 > app2 cli: http://localhost:3200/cli, connecting to particl2 on port 53935
 
@@ -252,23 +252,23 @@ by [w3tech](https://github.com/w3tecch)
 ```
 rm -rf /tmp/particl_testing/node1 /tmp/particl_testing/node2  /tmp/particl_testing/node3
 mkdir -p /tmp/particl_testing/node1 /tmp/particl_testing/node2  /tmp/particl_testing/node3
-./particld  --regtest -daemon -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test
-./particld -regtest -rpcuser=test -rpcpassword=test -daemon -datadir=/tmp/particl_testing/node2 -port=55555 -rpcport=51945 -connect=127.0.0.1
-./particld -regtest -daemon -datadir=/tmp/particl_testing/node3 -port=55556 -rpcport=51946 -connect=127.0.0.1
+./vircled  --regtest -daemon -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test
+./vircled -regtest -rpcuser=test -rpcpassword=test -daemon -datadir=/tmp/particl_testing/node2 -port=55555 -rpcport=51945 -connect=127.0.0.1
+./vircled -regtest -daemon -datadir=/tmp/particl_testing/node3 -port=55556 -rpcport=51946 -connect=127.0.0.1
 sleep 5
-./particl-cli -regtest -rpcuser=test -rpcpassword=test reservebalance true 100000
-./particl-cli -rpcuser=test -rpcpassword=test -regtest walletsettings stakelimit '{"height":0}'
-./particl-cli -rpcuser=test -rpcpassword=test -regtest extkeyimportmaster 'abandon baby cabbage dad eager fabric gadget habit ice kangaroo lab absorb'
-./particl-cli -rpcuser=test -rpcpassword=test -regtest getnewaddress
-./particl-cli -rpcuser=test -rpcpassword=test -regtest sendtypeto "part" "part" '[{"address":"pqZDE7YNWv5PJWidiaEG8tqfebkd6PNZDV", "amount":20000}]' "" "" 0 0 false '{"inputs":[{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":0},{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":1},{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":2}]}'
-./particl-cli -regtest -rpcuser=test -rpcpassword=test reservebalance false
-./particl-cli -rpcuser=test -rpcpassword=test -regtest walletsettings stakelimit '{"height":10}'
-./particl-cli -regtest -rpcuser=test -rpcpassword=test -rpcport=51945 extkeyimportmaster 'sección grito médula hecho pauta posada nueve ebrio bruto buceo baúl mitad'
-./particl-cli -regtest -rpcuser=test -rpcpassword=test -rpcport=51945 reservebalance true 20000
+./vircle-cli -regtest -rpcuser=test -rpcpassword=test reservebalance true 100000
+./vircle-cli -rpcuser=test -rpcpassword=test -regtest walletsettings stakelimit '{"height":0}'
+./vircle-cli -rpcuser=test -rpcpassword=test -regtest extkeyimportmaster 'abandon baby cabbage dad eager fabric gadget habit ice kangaroo lab absorb'
+./vircle-cli -rpcuser=test -rpcpassword=test -regtest getnewaddress
+./vircle-cli -rpcuser=test -rpcpassword=test -regtest sendtypeto "part" "part" '[{"address":"pqZDE7YNWv5PJWidiaEG8tqfebkd6PNZDV", "amount":20000}]' "" "" 0 0 false '{"inputs":[{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":0},{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":1},{"tx":"f89653c7208af2c76a3070d436229fb782acbd065bd5810307995b9982423ce7","n":2}]}'
+./vircle-cli -regtest -rpcuser=test -rpcpassword=test reservebalance false
+./vircle-cli -rpcuser=test -rpcpassword=test -regtest walletsettings stakelimit '{"height":10}'
+./vircle-cli -regtest -rpcuser=test -rpcpassword=test -rpcport=51945 extkeyimportmaster 'sección grito médula hecho pauta posada nueve ebrio bruto buceo baúl mitad'
+./vircle-cli -regtest -rpcuser=test -rpcpassword=test -rpcport=51945 reservebalance true 20000
 
 ```
 ```
-./particl-cli -regtest -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test stop
-./particl-cli -regtest -datadir=/tmp/particl_testing/node2 -rpcuser=test -rpcpassword=test -rpcport=51945 stop
-./particl-cli -regtest -datadir=/tmp/particl_testing/node3 -rpcport=51946 stop
+./vircle-cli -regtest -datadir=/tmp/particl_testing/node1 -rpcuser=test -rpcpassword=test stop
+./vircle-cli -regtest -datadir=/tmp/particl_testing/node2 -rpcuser=test -rpcpassword=test -rpcport=51945 stop
+./vircle-cli -regtest -datadir=/tmp/particl_testing/node3 -rpcport=51946 stop
 ```

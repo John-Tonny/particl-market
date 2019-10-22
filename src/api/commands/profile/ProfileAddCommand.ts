@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import { inject, named } from 'inversify';
 import { validate, request } from '../../../core/api/Validate';
@@ -73,8 +73,8 @@ export class ProfileAddCommand extends BaseCommand implements RpcCommandInterfac
     public help(): string {
         return this.usage() + ' -  ' + this.description() + ' \n'
             + '    <profileName>            - The name of the profile we want to create. \n'
-            + '    <profileAddress>         - [optional] the particl address of this profile. \n'
-            + '                                This is the address that\'s used in the particl \n'
+            + '    <profileAddress>         - [optional] the vircle address of this profile. \n'
+            + '                                This is the address that\'s used in the vircle \n'
             + '                                messaging system. Will be automatically generated \n'
             + '                                if omitted. ';
     }

@@ -62,7 +62,7 @@
             }
         },
         "itemPrice": {
-            "currency": "PARTICL",
+            "currency": "VIRCLE",
             "basePrice": 76.31903702293027,
             "shippingPrice": {
                 "domestic": 2.13268661244928,
@@ -140,7 +140,7 @@
                 "received": "2018-03-31T03:57:16+0200",
                 "sent": "2018-03-31T03:57:16+0200",
                 "from": "prW9s2UgmRaUjffBoaeMhiHWf3aMABBgLx",
-                "to": "pmktyVZshdMAQ6DPbbRXEFNGuzMbTMkqAA"
+                "to": "Pfd6MvF7ZHm5KS7XZ1n8ggFPMKefExrGS6"
             }
         }
     ]

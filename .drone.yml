@@ -1,7 +1,7 @@
 
 workspace:
   base: /workspace      # shared base volume available to all pipeline steps.
-  path: particl-market  # default working directory, where your code is cloned
+  path: vircle-market  # default working directory, where your code is cloned
 
 kind: pipeline
 name: Build and Push
@@ -31,16 +31,16 @@ steps:
   image: plugins/s3-cache:latest
   volumes:
     - name: node_modules
-      path: /workspace/particl-market/node_modules
+      path: /workspace/vircle-market/node_modules
   settings:
     pull: true
-    endpoint: http://minio.particl.xyz:9001
+    endpoint: http://minio.vircle.xyz:9001
     access_key:
       from_secret: MINIO_ACCESS_KEY
     secret_key:
       from_secret: MINIO_SECRET_KEY
     restore: true
-    path: /cache/particl-market/
+    path: /cache/vircle-market/
 
 
 - name: build (feature-push)
@@ -48,7 +48,7 @@ steps:
   pull: always
   storage_path: /workspace/docker
   settings:
-    repo: ludx/particl-market-ci
+    repo: ludx/vircle-market-ci
     dockerfile: Dockerfile.ci
     username:
       from_secret: REGISTRY_USER
@@ -69,9 +69,9 @@ steps:
       - push
     repo:
       exclude:
-        - particl/particl-market
+        - vircle/vircle-market
       include:
-        - xludx/particl-market          # todo: others
+        - xludx/vircle-market          # todo: others
 
 
 - name: build (feature-pr)
@@ -79,7 +79,7 @@ steps:
   pull: always
   storage_path: /workspace/docker
   settings:
-    repo: ludx/particl-market-ci
+    repo: ludx/vircle-market-ci
     dockerfile: Dockerfile.ci
     username:
       from_secret: REGISTRY_USER
@@ -98,8 +98,8 @@ steps:
       - pull_request
     repo:
       include:
-        - particl/particl-market
-        - xludx/particl-market
+        - vircle/vircle-market
+        - xludx/vircle-market
 
 
 - name: build (develop-push)
@@ -107,7 +107,7 @@ steps:
   pull: always
   storage_path: /workspace/docker
   settings:
-    repo: ludx/particl-market-ci
+    repo: ludx/vircle-market-ci
     dockerfile: Dockerfile.ci
     username:
       from_secret: REGISTRY_USER
@@ -131,7 +131,7 @@ steps:
   pull: always
   storage_path: /workspace/docker
   settings:
-    repo: ludx/particl-market-ci
+    repo: ludx/vircle-market-ci
     dockerfile: Dockerfile.ci
     username:
       from_secret: REGISTRY_USER
@@ -151,12 +151,12 @@ steps:
 
 
 - name: run unit tests
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   volumes:
     - name: node_modules
       path: /app/node_modules
     - name: node_modules
-      path: /workspace/particl-market/node_modules
+      path: /workspace/vircle-market/node_modules
   environment:
     KONTENA_CERT:
       from_secret: KONTENA_CERT
@@ -198,7 +198,7 @@ steps:
 
 
 - name: run integration tests
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   volumes:
     - name: node_modules
       path: /app/node_modules
@@ -214,7 +214,7 @@ steps:
 
 
 - name: upgrade kontena stack for tests
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   environment:
       KONTENA_CERT:
           from_secret: KONTENA_CERT
@@ -243,7 +243,7 @@ steps:
 
 
 - name: run blackbox tests
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   volumes:
     - name: node_modules
       path: /app/node_modules
@@ -253,7 +253,7 @@ steps:
 
 
 - name: run ui tests
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   volumes:
     - name: node_modules
       path: /app/node_modules
@@ -263,7 +263,7 @@ steps:
 
 
 - name: deploy (feature-push)
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   environment:
     KONTENA_CERT:
       from_secret: KONTENA_CERT
@@ -298,13 +298,13 @@ steps:
       - push
     repo:
       exclude:
-        - particl/particl-market
+        - vircle/vircle-market
       include:
-        - xludx/particl-market          # todo: others
+        - xludx/vircle-market          # todo: others
 
 
 - name: deploy (feature-pr)
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   environment:
     KONTENA_CERT:
       from_secret: KONTENA_CERT
@@ -337,12 +337,12 @@ steps:
       - pull_request
     repo:
       include:
-        - particl/particl-market
-        - xludx/particl-market
+        - vircle/vircle-market
+        - xludx/vircle-market
 
 
 - name: deploy (develop-push)
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   environment:
     KONTENA_CERT:
       from_secret: KONTENA_CERT
@@ -376,7 +376,7 @@ steps:
 
 
 - name: deploy (develop-pr)
-  image: ludx/particl-market-ci:${DRONE_COMMIT_SHA}
+  image: ludx/vircle-market-ci:${DRONE_COMMIT_SHA}
   environment:
     KONTENA_CERT:
       from_secret: KONTENA_CERT
@@ -413,10 +413,10 @@ steps:
   image: plugins/s3-cache:latest
   volumes:
     - name: node_modules
-      path: /workspace/particl-market/node_modules
+      path: /workspace/vircle-market/node_modules
   settings:
     pull: true
-    endpoint: http://minio.particl.xyz:9001
+    endpoint: http://minio.vircle.xyz:9001
     access_key:
       from_secret: MINIO_ACCESS_KEY
     secret_key:
@@ -425,22 +425,22 @@ steps:
     debug: true
     mount:
       - node_modules
-    path: /cache/particl-market/
-    fallback_path: /cache/particl-market/
+    path: /cache/vircle-market/
+    fallback_path: /cache/vircle-market/
 
 
 - name: flush cache
   image: plugins/s3-cache:latest
   settings:
     pull: true
-    endpoint: http://minio.particl.xyz:9001
+    endpoint: http://minio.vircle.xyz:9001
     access_key:
       from_secret: MINIO_ACCESS_KEY
     secret_key:
       from_secret: MINIO_SECRET_KEY
     flush: true
     flush_age: 14
-    flush_path: /cache/particl-market/
+    flush_path: /cache/vircle-market/
 
 
 volumes:

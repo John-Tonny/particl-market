@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 import { Environment } from './Environment';
 import * as os from 'os';
@@ -13,7 +13,7 @@ import { EnvConfig } from '../../config/env/EnvConfig';
  * core.DataDir
  * ------------------------------------
  *
- * Manages the data directories for particl-market.
+ * Manages the data directories for vircle-market.
  *
  *  Linux:
  *  OSX:
@@ -36,7 +36,7 @@ export class DataDir {
         const homeDir: string = os.homedir ? os.homedir() : process.env['HOME'];
 
         let dir = '';
-        const appName = 'particl-market';
+        const appName = 'vircle-market';
 
         switch (process.platform) {
             case 'linux': {
@@ -116,7 +116,7 @@ export class DataDir {
         console.log('initialize, uploads: ', uploads);
         console.log('initialize, images: ', images);
 
-        // may also be the particl-market/testnet
+        // may also be the vircle-market/testnet
         // so check if upper directory exists.
         // TODO: what is this tesnet?!
         if (this.datadir.endsWith('testnet') || this.datadir.endsWith('tesnet/') || this.datadir.endsWith('regtest')) {
@@ -166,7 +166,7 @@ export class DataDir {
     public static createDefaultEnvFile(): Promise<boolean> {
         return new Promise((resolve, reject) => {
             // The .env file that we use as template is stored in different locations
-            // /somepath/particl-market/srcORdist/core/helpers -> /somepath/particl-market/srcORdist/
+            // /somepath/vircle-market/srcORdist/core/helpers -> /somepath/vircle-market/srcORdist/
             let dir = path.dirname(path.dirname(__dirname));
             let dotenv;
 

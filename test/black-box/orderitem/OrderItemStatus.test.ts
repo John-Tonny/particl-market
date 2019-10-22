@@ -1,6 +1,6 @@
-// Copyright (c) 2017-2019, The Particl Market developers
+// Copyright (c) 2017-2019, The Vircle Market developers
 // Distributed under the GPL software license, see the accompanying
-// file COPYING or https://github.com/particl/particl-market/blob/develop/LICENSE
+// file COPYING or https://github.com/vircle/vircle-market/blob/develop/LICENSE
 
 // tslint:disable:max-line-length
 import * from 'jest';
@@ -402,7 +402,7 @@ describe('OrderItemStatus', () => {
 
         // log.debug('myOrderItems: ', JSON.stringify(myOrderItems, null, 2));
 /*
-        2018-08-29T18:12:35.500Z - debug: [/home/juha/Work/particl/particl-market/test/black-box/orderItem/OrderItemStatus.test] myOrderItems:  0=[[
+        2018-08-29T18:12:35.500Z - debug: [/home/juha/Work/vircle/vircle-market/test/black-box/orderItem/OrderItemStatus.test] myOrderItems:  0=[[
             {
                 "listingItemHash": "3ebfd8df240974460b608d999eddb3231860b429a03695af9b5531d31aacc4c8",
                 "bidType": "MPA_ACCEPT",
