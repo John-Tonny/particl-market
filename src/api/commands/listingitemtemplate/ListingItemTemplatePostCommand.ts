@@ -93,7 +93,6 @@ export class ListingItemTemplatePostCommand extends BaseCommand implements RpcCo
         const listingItemTemplateId = data.params[0];
         const daysRetention = data.params[1];
         const marketId = data.params[2];
-
         if (listingItemTemplateId && typeof listingItemTemplateId !== 'number') {
             throw new MessageException('listingItemTemplateId should be a number.');
         } else {
@@ -102,10 +101,9 @@ export class ListingItemTemplatePostCommand extends BaseCommand implements RpcCo
                 .then(value => value.toJSON());   // throws if not found
 
             const itemPrice: resources.ItemPrice = listingItemTemplate.PaymentInformation.ItemPrice;
-
             // validate price
-            if (_.isEmpty(itemPrice.basePrice)
-                || listingItemTemplate.PaymentInformation.ItemPrice.basePrice < 0) {
+            // if (_.isEmpty(itemPrice.basePrice)
+            if ( listingItemTemplate.PaymentInformation.ItemPrice.basePrice < 0) {
                 throw new MessageException('Invalid ItemPrice');
             }
             if (!itemPrice.basePrice || itemPrice.basePrice < 0) {

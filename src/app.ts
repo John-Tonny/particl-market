@@ -21,7 +21,6 @@ import { CustomConfig } from './config/CustomConfig';
 import { Environment } from './core/helpers/Environment';
 import * as dotenv from 'dotenv';
 
-console.log('app, process.env.NODE_ENV:', process.env.NODE_ENV );
 
 const config = envConfig();
 // loads the .env file into the 'process.env' variable.
