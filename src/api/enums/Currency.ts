@@ -10,6 +10,6 @@
 export enum Currency {
 
     BITCOIN = 'BITCOIN',
-    VIRCLE = 'VIRCLE'
+    VIRCLE = 'VCL'
 
 }

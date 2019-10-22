@@ -61,7 +61,7 @@
             }
         },
         "itemPrice": {
-            "currency": "VIRCLE",
+            "currency": "VCL",
             "basePrice": 1000,
             "shippingPrice": {
                 "domestic": 2,
